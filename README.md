@@ -5,7 +5,7 @@ Azure Portal을 통해서 Managed Disk로 생성한 VM을 이미지(Managed Imag
 
 여기서 설명되는 스크립트는 OS 디스크만 가지고 있는 VM에 대한 내용이고 데이터 디스크가 여러개 있는 경우는 같은 방법으로 반복하면 된다. 
 
-## VM을 그대로 다른 지역이나 다른 구독으로 옮기고 싶다. 
+## Azure VM을 그대로 다른 지역이나 다른 구독으로 이동 
 디스크 Export를 이용하면 조금 복잡하지만 가능하다. 순서는 아래와 같다. 
 
 1. (옵션) 포탈에서 대상이 되는 VM의 디스크를 Snapshot으로 백업한다. ([참조문서](https://docs.microsoft.com/ko-kr/azure/virtual-machines/windows/snapshot-copy-managed-disk))
@@ -24,8 +24,9 @@ Azure Portal을 통해서 Managed Disk로 생성한 VM을 이미지(Managed Imag
 1. 포탈에서 새로운 VM 생성 
 1. 이미지와 스토리지는 삭제
 
-## 유튜브 동영상 링크 
+## 유튜브 데모 동영상 링크 
 전체 프로세스를 동영상으로 제공합니다. 
+[유튜브: Azure 가상머신 이미지 이동](https://www.youtube.com/watch?v=5n4256-z16o)
 
 ## 참고자료 
 
