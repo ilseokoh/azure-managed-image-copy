@@ -1,5 +1,6 @@
 #!/bin/bash
 # azure CLI 2.0 installation: https://docs.microsoft.com/ko-kr/cli/azure/install-azure-cli?view=azure-cli-latest
+
 targetResourceGroupName="TargetGroup"
 targetStorageAccountName="targettmp"
 targetImageStorageContainerName="images"
@@ -13,7 +14,7 @@ storageSasToken=$(az storage account generate-sas --expiry 2017-10-01'T'12:00'Z'
 
 # Container 생성 
 echo "create a new container"
-#az storage container create -n $targetImageStorageContainerName --account-name $targetStorageAccountName --sas-token $storageSasToken
+az storage container create -n $targetImageStorageContainerName --account-name $targetStorageAccountName --sas-token $storageSasToken
 
 # 복사 시작
 echo "Copy is Started"
