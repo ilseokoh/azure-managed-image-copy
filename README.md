@@ -29,10 +29,12 @@ Azure Portal을 통해서 Managed Disk로 생성한 VM을 이미지(Managed Imag
 
 ## 참고자료 
 
-[가상 컴퓨터 또는 VHD의 이미지를 만드는 방법](https://docs.microsoft.com/ko-kr/azure/virtual-machines/linux/capture-image)
+[가상 컴퓨터 또는 VHD의 이미지를 만드는 방법 (linux)](https://docs.microsoft.com/ko-kr/azure/virtual-machines/linux/capture-image)
 
 [Install Azure CLI 2.0](https://docs.microsoft.com/ko-kr/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 [Install and configure Azure PowerShell](https://docs.microsoft.com/ko-kr/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0)
 
 [백업된 Snapshot에서 새로운 VM 생성](https://github.com/ilseokoh/azuresnapshot2vm)
+
+[New-AzureRmImageConfig](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/new-azurermimageconfig?view=azurermps-4.4.0)
