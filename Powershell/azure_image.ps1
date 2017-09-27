@@ -9,16 +9,16 @@ $targetImageStorageContainerName="images"
 # 생성할 이미지 이름 
 $targetImageName="TargetImage"
 # 포탈에서 Export 메뉴로 만든 SAS URL 
-$srcSasUrl="https://md-g23zjjmrllxj.blob.core.windows.net/zx45ct4r2pdv/abcd?sv=2016-05-31&sr=b&si=f7b6eb11-3249-48f2-8507-1bed43bccd5f&sig=5mMvgETuenriMQ%2B%2B%2F79%2BCjhHJ8b%2FlAlrWF9FwPMADlE%3D"
+$srcSasUrl="https://md-csf3np234j5s.blob.core.windows.net/njm1snksbrrw/abcd?sv=2016-05-31&sr=b&si=795ce90e-5064-48db-b235-e6f2d28d5600&sig=Ae5zUq1IqvpNvezeTPInBgPjjr2hRdBmQwo3g03ksBM%3D"
 
 $targetRegion = "koreacentral"
 
 
-#
+# 새로운 컨테이너 생성
 $targetStorageContext = (Get-AzureRmStorageAccount -ResourceGroupName $targetResourceGroupName -Name $targetStorageAccountName).Context
 New-AzureStorageContainer -Name $targetImageStorageContainerName -Context $targetStorageContext -Permission Container
  
-# Use the SAS URL to copy the blob to the target storage account (and thus region)
+# 다른 지역이나 구독의 스토리지로 복사
 $imageBlobName = $targetImageName + "-osdisk.vhd"
 Start-AzureStorageBlobCopy -AbsoluteUri $srcSasUrl -DestContainer $targetImageStorageContainerName -DestContext $targetStorageContext -DestBlob $imageBlobName
 Get-AzureStorageBlobCopyState -Container $targetImageStorageContainerName -Blob $imageBlobName -Context $targetStorageContext -WaitForComplete

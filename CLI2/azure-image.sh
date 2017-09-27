@@ -6,7 +6,7 @@ targetStorageAccountName="targettmp"
 targetImageStorageContainerName="images"
 targetImageName="TargetImage"
 # 포탈에서 Export 메뉴로 만든 SAS URL 
-srcSasUrl="https://md-g23zjjmrllxj.blob.core.windows.net/zx45ct4r2pdv/abcd?sv=2016-05-31&sr=b&si=0e9a41b9-b058-4fc6-b2f2-01cdc085b449&sig=0Sn8Zxo9Jf1yW6wWdYDLucLs8FS%2BA5tjeJpxzSYu0IM%3D"
+srcSasUrl="https://md-csf3np234j5s.blob.core.windows.net/njm1snksbrrw/abcd?sv=2016-05-31&sr=b&si=795ce90e-5064-48db-b235-e6f2d28d5600&sig=Ae5zUq1IqvpNvezeTPInBgPjjr2hRdBmQwo3g03ksBM%3D"
 
 # 다른 지역/다른 구독에 있는 Azure Storage Account
 targetStorageAccountKey=$(az storage account keys list -g $targetResourceGroupName --account-name $targetStorageAccountName --query "[:1].value" -o tsv)
@@ -27,11 +27,8 @@ while [ $percent -lt 100 ]
 do
     status=$(az storage blob show --container-name $targetImageStorageContainerName -n $imageBlobName --account-name $targetStorageAccountName --sas-token $storageSasToken --query "properties.copy.progress")
     status=$(echo "$status" | sed -e 's/^"//' -e 's/"$//')
-    echo $status
     item=$(echo $status | cut -f1 -d "/")
     total=$(echo $status | cut -f2 -d "/")
-    echo $item
-    echo $total
     percent=$(awk "BEGIN { pc=100*${item}/${total}; i=int(pc); print (pc-i<0.5)?i:i+1 }")
     echo -ne $percent
     sleep 1
